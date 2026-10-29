@@ -14,13 +14,13 @@
 
 O FiapRide é um projeto desenvolvido em Java para aplicar os conceitos de Programação Orientada a Objetos (POO) estudados nas aulas 1 a 9 da FIAP.
 
-O projeto representa um sistema de modelagem de veículos, no qual diferentes tipos de carros possuem características e comportamentos próprios. Também permite realizar diagnósticos e verificar a necessidade de manutenção de diferentes tipos de objetos.
+O projeto representa um sistema de modelagem de veículos, no qual diferentes tipos de carros possuem características e comportamentos próprios.
 
 A implementação utiliza classes, objetos, métodos, encapsulamento, construtores, associação, herança, polimorfismo, classes abstratas e interfaces.
 
 A classe `MeuCarro` representa a estrutura geral de um carro, enquanto `MeuCarroEletrico` e `MeuCarroEsportivo` representam especializações com características específicas. A classe `Motor` demonstra a associação entre objetos.
 
-Além dos veículos, a interface `Inspecionavel` estabelece um contrato de comportamento implementado por carros, elevadores e servidores em nuvem, demonstrando como diferentes classes podem compartilhar operações sem precisar pertencer à mesma hierarquia de herança.
+Na Aula 9, foi realizada uma atividade colaborativa em que o projeto foi integrado com o projeto de um colega. Nessa atividade, foram utilizadas as classes `Tenis`, `TenisAdulto` e `TenisInfantil`, e a interface `Vendavel` foi criada como comportamento em comum entre os projetos.
 
 O objetivo é desenvolver um código organizado, reutilizável e protegido contra entradas inválidas, aplicando boas práticas de programação.
 
@@ -31,12 +31,13 @@ O objetivo é desenvolver um código organizado, reutilizável e protegido contr
 - [x] Aula 1 - Classes e Objetos
 - [x] Aula 2 - Métodos
 - [x] Aula 3 - Encapsulamento
-- [x] Aula 4 - Construtores 
+- [x] Aula 4 - Construtores
 - [x] Aula 5 - Associação
 - [x] Aula 6 - Herança
 - [x] Aula 7 - Polimorfismo por sobrescrita
 - [x] Aula 8 - Classes Abstratas
-- [x] Aula 9 - Interfaces 
+- [x] Aula 9 - Interfaces
+
 ---
 
 ## Perguntas de Reflexão
@@ -111,7 +112,11 @@ Uma classe abstrata representa um conceito geral que serve como base para classe
 
 **Resposta:**
 
-Java permite que uma classe implemente várias interfaces porque elas definem contratos de comportamento sem exigir que a classe herde a implementação e o estado de várias superclasses. A herança múltipla de classes poderia gerar ambiguidades quando diferentes classes mães definissem métodos com a mesma assinatura e implementações incompatíveis. As interfaces permitem que uma classe assuma diferentes responsabilidades sem criar essa complexidade de herança de estado. No meu projeto, a interface `Inspecionavel` define os métodos `executarDiagnostico()` e `precisaDeManutencao()`. As classes `MeuCarro`, `Elevador` e `ServidorCloud` implementam esses métodos de acordo com suas próprias características. Assim, objetos de categorias diferentes podem ser tratados por meio do mesmo contrato, mesmo sem compartilharem a mesma superclasse.
+Java permite que uma classe implemente várias interfaces porque elas definem contratos de comportamento sem exigir que a classe herde a implementação e o estado de várias superclasses. A herança múltipla de classes poderia gerar ambiguidades quando diferentes classes mães definissem métodos com a mesma assinatura e implementações incompatíveis. As interfaces permitem que uma classe assuma diferentes responsabilidades sem criar essa complexidade de herança de estado.
+
+Na Aula 9, foi realizada uma atividade colaborativa em que nosso projeto foi juntado ao projeto de um colega para criar uma interface em comum. Nessa atividade, foram utilizadas as classes `Tenis`, `TenisAdulto` e `TenisInfantil`. A interface escolhida para representar o comportamento em comum entre os projetos foi `Vendavel`.
+
+Assim, a atividade demonstrou como uma interface pode ser utilizada para estabelecer um contrato comum entre classes de projetos diferentes, sem precisar colocá-las na mesma hierarquia de herança.
 
 ---
 
@@ -119,30 +124,39 @@ Java permite que uma classe implemente várias interfaces porque elas definem co
 
 ### Qual foi o domínio que você escolheu para seu projeto pessoal?
 
-Escolhi o domínio de veículos, com foco na modelagem de carros e na inspeção de diferentes tipos de objetos. O projeto permite representar características de veículos, controlar seus comportamentos e demonstrar conceitos de orientação a objetos.
+Escolhi o domínio de veículos, com foco na modelagem de carros. O projeto permite representar características de veículos, controlar seus comportamentos e demonstrar conceitos de orientação a objetos.
 
 ### Quais classes você criou?
 
-As principais classes e interfaces são:
+As principais classes do projeto principal são:
 
 - `MeuCarro`: classe abstrata que representa as características e os comportamentos comuns dos carros.
 - `MeuCarroEletrico`: especialização que representa um carro elétrico e possui o atributo `autonomia`.
 - `MeuCarroEsportivo`: especialização que representa um carro esportivo e possui o atributo `potenciaTurbo`.
 - `Motor`: representa o motor associado ao veículo.
-- `Inspecionavel`: interface que define o contrato de diagnóstico e verificação de manutenção.
-- `Elevador`: representa um elevador que pode ser inspecionado.
-- `ServidorCloud`: representa um servidor em nuvem que pode ser inspecionado.
-- `SistemaPrincipalHanin`: executa os testes de criação de objetos, associação, herança, polimorfismo e interfaces.
+- `SistemaPrincipalHanin`: executa os testes de criação de objetos, associação, herança e polimorfismo.
+
+Na atividade colaborativa da Aula 9, foram utilizadas as classes:
+
+- `Tenis`
+- `TenisAdulto`
+- `TenisInfantil`
+
+E a interface em comum utilizada foi:
+
+- `Vendavel`
 
 ### Qual foi o maior desafio técnico que você enfrentou?
 
-O maior desafio foi compreender como combinar herança, polimorfismo, classes abstratas e interfaces sem duplicar código ou comprometer a organização do projeto.
+O maior desafio foi compreender como combinar herança, polimorfismo e classes abstratas sem duplicar código ou comprometer a organização do projeto.
 
 Inicialmente, cada tipo de carro poderia ter seus próprios atributos e métodos, o que aumentaria a repetição. Para resolver isso, concentrei as características comuns na classe abstrata `MeuCarro` e mantive nas subclasses somente os elementos específicos de cada tipo.
 
 Outro desafio foi compreender como a sobrescrita permite que o mesmo método tenha comportamentos diferentes. Em `MeuCarroEletrico` e `MeuCarroEsportivo`, o método `acelerar()` possui implementações específicas, mas utiliza o comportamento comum da superclasse por meio de `super.acelerar()`.
 
-Também aprendi que o encapsulamento não significa apenas declarar atributos como privados. É necessário controlar as operações que modificam o estado do objeto e validar os dados recebidos. Por fim, a interface `Inspecionavel` ajudou a entender como classes sem uma relação direta de herança podem implementar um mesmo contrato. Esses desafios mostraram a importância de planejar a estrutura das classes e testar diferentes situações.
+Também aprendi que o encapsulamento não significa apenas declarar atributos como privados. É necessário controlar as operações que modificam o estado do objeto e validar os dados recebidos.
+
+Por fim, na Aula 9, o desafio foi integrar o projeto com o projeto de um colega e identificar um comportamento que pudesse ser representado por uma interface comum. A criação da interface `Vendavel` e o uso das classes `Tenis`, `TenisAdulto` e `TenisInfantil` ajudaram a entender como diferentes classes podem seguir um mesmo contrato.
 
 ---
 
@@ -152,7 +166,7 @@ Também aprendi que o encapsulamento não significa apenas declarar atributos co
 
 Ao longo das nove aulas, aprendi a construir classes e objetos, definir métodos, proteger atributos com encapsulamento e utilizar construtores para inicializar objetos. Também compreendi como associar classes, reutilizar código por meio de herança e implementar comportamentos específicos com polimorfismo.
 
-A criação da classe abstrata `MeuCarro` ajudou a entender a diferença entre um modelo geral e suas especializações. Já a interface `Inspecionavel` demonstrou que diferentes tipos de objetos podem compartilhar comportamentos sem pertencer à mesma hierarquia.
+A criação da classe abstrata `MeuCarro` ajudou a entender a diferença entre um modelo geral e suas especializações. Já a atividade da Aula 9 com a interface `Vendavel` demonstrou que diferentes classes podem compartilhar um comportamento por meio de uma interface, mesmo fazendo parte de projetos diferentes.
 
 Além dos conceitos técnicos, aprendi que escrever código funcional não é suficiente. É importante organizar as responsabilidades das classes, validar entradas, escolher modificadores de acesso adequados e documentar as decisões tomadas. O projeto permitiu transformar conceitos teóricos em uma implementação prática e mostrou como a orientação a objetos ajuda a organizar sistemas que podem crescer com o tempo.
 
@@ -170,10 +184,10 @@ Outra melhoria seria separar melhor a lógica de negócio da apresentação, fac
 
 ## Diagramas UML
 
-
 **Diagrama de classes do FiapRide:**
 
-<img width="4274" height="1198" alt="Class Diagram1" src="https://github.com/user-attachments/assets/f5df7730-6c58-4f62-9974-4566d87a5fa1" />
+<img width="4024" height="1550" alt="Class Diagram2" src="https://github.com/user-attachments/assets/7621ef5f-f68f-421e-9cb9-7e0656563392" />
+
 
 ---
 
@@ -183,7 +197,7 @@ Outra melhoria seria separar melhor a lógica de negócio da apresentação, fac
 2. Abra o projeto no Eclipse ou em uma IDE compatível com Java.
 3. Verifique se os arquivos estão organizados nos pacotes `br.com.fiap.model` e `br.com.fiap.main`.
 4. Execute a classe `Main`.
-5. Confira no console os testes de criação de objetos, aceleração, herança, polimorfismo e inspeção.
+5. Confira no console os testes de criação de objetos, aceleração, herança e polimorfismo.
 
 O projeto utiliza Java e não exige bibliotecas externas para as classes apresentadas.
 
