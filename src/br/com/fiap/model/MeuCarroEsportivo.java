@@ -1,6 +1,6 @@
 package br.com.fiap.model;
 
-public class MeuCarroEsportivo extends MeuCarro {
+public class MeuCarroEsportivo extends MeuCarro implements Vendavel {
 
     private int potenciaTurbo;
 
@@ -29,4 +29,14 @@ public class MeuCarroEsportivo extends MeuCarro {
     public String tipoDeCarro() {
         return "Carro esportivo";
     }
+
+	@Override
+	public void vender(int preco) {
+		if (preco < Vendavel.PRECO_MINIMA || preco > Vendavel.PRECO_MAXIMA) {
+            System.out.println("Erro: Preco inválido!");
+            return;
+        }
+        
+        System.out.println("Carro Esportivo: " + this.getMarca() + " vender por " + preco + "$");			
+	}
 }

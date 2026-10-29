@@ -109,24 +109,47 @@ public class SistemaPrincipalHanin {
         // ================================================================
         // Aula 9 - O Contrato de Comportamento - Interfaces
         // ================================================================
-        System.out.println("-> [Aula 9] Testando interfaces (contrato de comportamento):");
-        Elevador predio = new Elevador(42, 6000);
-        ServidorCloud aws = new ServidorCloud("10.0.1.15", 89.5);
-
-        // Juntando carros, elevador e servidor numa interface só! Nada a ver, mas funciona hehe
-        Inspecionavel[] listaParaInspecao = { minhaFerrari, tesla, predio, aws };
-
-        for (Inspecionavel item : listaParaInspecao) {
-            System.out.println("----------------------------------------");
-            item.executarDiagnostico();
-            
-            if (item.precisaDeManutencao()) {
-                System.out.println("Status: Precisa de manutenção!");
-            } else {
-                System.out.println("Status: Tudo ok por aqui.");
-            }
+        System.out.println("=== FIAPRIDE: Teste da Interface Vendavel ===");
+        System.out.println();
+ 
+        // Criando os objetos
+        Motor motor = new Motor("TES-9999",3);
+        Dono dono = new Dono("Maria");
+ 
+        MeuCarroEletrico carro = new MeuCarroEletrico(
+            "Branco", "Tesla", 2025, motor, 450
+        );
+ 
+        TenisAdulto tenis = new TenisAdulto(
+            "Preto", "Nike", 42, dono, true
+        );
+ 
+        // Polimorfismo: um carro e um tênis
+        Vendavel[] produtos = {
+            carro,
+            tenis
+        };
+ 
+        System.out.println("=== Realizando as Vendas ===");
+ 
+        produtos[0].vender(200000);
+        produtos[1].vender(500);
+ 
+        System.out.println();
+ 
+        System.out.println("=== Testando Preço Inválido ===");
+ 
+        produtos[0].vender(50);
+ 
+        System.out.println();
+ 
+        System.out.println("=== Testando Polimorfismo ===");
+ 
+        for (Vendavel produto : produtos) {
+            produto.vender(1000);
         }
-
+    
+    
         System.out.println("\n=== FIM DOS TESTES - TUDO RODANDO CERTINHO! ===");
     }
 }
